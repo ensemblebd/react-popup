@@ -65,6 +65,7 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "event-emitter-object": "^4.0.2",
     "keymaster": "^1.6.2"
   },
   "ava": {
