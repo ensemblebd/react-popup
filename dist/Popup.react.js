@@ -1,9 +1,11 @@
 "use strict";
 
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -21,35 +23,37 @@ var _Constants = _interopRequireDefault(require("./Constants"));
 
 var _Bem = require("./Bem");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.getPrototypeOf || function _getPrototypeOf(o) { return o.__proto__; }; return _getPrototypeOf(o); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var defaultKeyFilter = _keymaster.default.filter;
-var Store = new _Store.default();
+var defaultKeyFilter = _keymaster["default"].filter;
+var Store = new _Store["default"]();
 
 var handleClose = function handleClose() {
-  _keymaster.default.deleteScope('react-popup');
+  _keymaster["default"].deleteScope('react-popup');
 
-  _keymaster.default.filter = defaultKeyFilter;
+  _keymaster["default"].filter = defaultKeyFilter;
   Store.close();
 };
 
@@ -64,31 +68,33 @@ var initialState = {
   position: false,
   closeOnOutsideClick: true,
   onClose: function onClose() {},
-  onOpen: function onOpen() {}
+  onShow: function onShow() {}
 };
 
-var Popup =
-/*#__PURE__*/
-function (_React$Component) {
+var Popup = /*#__PURE__*/function (_React$Component) {
+  _inherits(Popup, _React$Component);
+
+  var _super = _createSuper(Popup);
+
   _createClass(Popup, null, [{
     key: "addShowListener",
     value: function addShowListener(callback) {
-      Store.on(_Constants.default.SHOW, callback);
+      Store.on(_Constants["default"].SHOW, callback);
     }
   }, {
     key: "removeShowListener",
     value: function removeShowListener(callback) {
-      Store.removeListener(_Constants.default.SHOW, callback);
+      Store.removeListener(_Constants["default"].SHOW, callback);
     }
   }, {
     key: "addCloseListener",
     value: function addCloseListener(callback) {
-      Store.on(_Constants.default.CLOSE, callback);
+      Store.on(_Constants["default"].CLOSE, callback);
     }
   }, {
     key: "removeCloseListener",
     value: function removeCloseListener(callback) {
-      Store.removeListener(_Constants.default.CLOSE, callback);
+      Store.removeListener(_Constants["default"].CLOSE, callback);
     }
   }, {
     key: "register",
@@ -175,15 +181,15 @@ function (_React$Component) {
 
     _classCallCheck(this, Popup);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Popup).call(this, props));
+    _this = _super.call(this, props);
     initialState.closeOnOutsideClick = _this.props.closeOnOutsideClick;
     _this.state = initialState;
     _this.bound = {
-      onShow: _this.onShow.bind(_assertThisInitialized(_assertThisInitialized(_this))),
-      onClose: _this.onClose.bind(_assertThisInitialized(_assertThisInitialized(_this))),
-      onRefresh: _this.onRefresh.bind(_assertThisInitialized(_assertThisInitialized(_this))),
-      containerClick: _this.containerClick.bind(_assertThisInitialized(_assertThisInitialized(_this))),
-      handleButtonClick: _this.handleButtonClick.bind(_assertThisInitialized(_assertThisInitialized(_this)))
+      onShow: _this.onShow.bind(_assertThisInitialized(_this)),
+      onClose: _this.onClose.bind(_assertThisInitialized(_this)),
+      onRefresh: _this.onRefresh.bind(_assertThisInitialized(_this)),
+      containerClick: _this.containerClick.bind(_assertThisInitialized(_this)),
+      handleButtonClick: _this.handleButtonClick.bind(_assertThisInitialized(_this))
     };
     _this.boxRef = null;
     _this.defaultKeyBindings = {
@@ -196,9 +202,9 @@ function (_React$Component) {
   _createClass(Popup, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      Store.on(_Constants.default.SHOW, this.bound.onShow);
-      Store.on(_Constants.default.CLOSE, this.bound.onClose);
-      Store.on(_Constants.default.REFRESH, this.bound.onRefresh);
+      Store.on(_Constants["default"].SHOW, this.bound.onShow);
+      Store.on(_Constants["default"].CLOSE, this.bound.onClose);
+      Store.on(_Constants["default"].REFRESH, this.bound.onRefresh);
     }
   }, {
     key: "componentDidUpdate",
@@ -212,13 +218,13 @@ function (_React$Component) {
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      Store.removeListener(_Constants.default.SHOW, this.bound.onShow);
-      Store.removeListener(_Constants.default.CLOSE, this.bound.onClose);
-      Store.removeListener(_Constants.default.REFRESH, this.bound.onRefresh);
+      Store.removeListener(_Constants["default"].SHOW, this.bound.onShow);
+      Store.removeListener(_Constants["default"].CLOSE, this.bound.onClose);
+      Store.removeListener(_Constants["default"].REFRESH, this.bound.onRefresh);
 
-      _keymaster.default.deleteScope('react-popup');
+      _keymaster["default"].deleteScope('react-popup');
 
-      _keymaster.default.filter = defaultKeyFilter;
+      _keymaster["default"].filter = defaultKeyFilter;
     }
     /**
      * Refresh popup position
@@ -239,9 +245,9 @@ function (_React$Component) {
   }, {
     key: "onClose",
     value: function onClose() {
-      _keymaster.default.deleteScope('react-popup');
+      _keymaster["default"].deleteScope('react-popup');
 
-      _keymaster.default.filter = defaultKeyFilter;
+      _keymaster["default"].filter = defaultKeyFilter;
       this.state.onClose(this.state.id, this.state.title);
       this.setState(initialState);
     }
@@ -255,9 +261,9 @@ function (_React$Component) {
     value: function onShow(id) {
       var _this2 = this;
 
-      _keymaster.default.deleteScope('react-popup');
+      _keymaster["default"].deleteScope('react-popup');
 
-      _keymaster.default.filter = function () {
+      _keymaster["default"].filter = function () {
         return true;
       };
 
@@ -282,14 +288,14 @@ function (_React$Component) {
         position: popup.position,
         closeOnOutsideClick: popup.closeOnOutsideClick,
         onClose: popup.onClose,
-        onOpen: popup.onOpen
+        onShow: popup.onShow
       }, function () {
-        _keymaster.default.setScope('react-popup');
+        _keymaster["default"].setScope('react-popup');
 
-        _this2.state.onOpen(_this2.state.id, _this2.state.title);
+        _this2.state.onShow(_this2.state.id, _this2.state.title);
 
         if (_this2.props.escToClose) {
-          (0, _keymaster.default)('esc', 'react-popup', _this2.handleKeyEvent.bind(_this2, 'cancel', _this2.state.id));
+          (0, _keymaster["default"])('esc', 'react-popup', _this2.handleKeyEvent.bind(_this2, 'cancel', _this2.state.id));
         }
 
         if (_this2.state.buttons) {
@@ -368,7 +374,7 @@ function (_React$Component) {
       }
 
       if (code) {
-        (0, _keymaster.default)(code, 'react-popup', this.handleKeyEvent.bind(this, button, this.state.id));
+        (0, _keymaster["default"])(code, 'react-popup', this.handleKeyEvent.bind(this, button, this.state.id));
       }
     }
   }, {
@@ -423,7 +429,7 @@ function (_React$Component) {
         className += " ".concat(this.props.className, "--visible");
 
         if (this.props.closeBtn) {
-          closeBtn = _react.default.createElement("button", {
+          closeBtn = /*#__PURE__*/_react["default"].createElement("button", {
             onClick: handleClose,
             className: "".concat(this.props.className, "__close")
           }, this.props.closeHtml);
@@ -435,7 +441,7 @@ function (_React$Component) {
           boxClass += " ".concat((0, _Bem.modifier)(this.state.className, boxClass));
         }
 
-        box = _react.default.createElement("article", {
+        box = /*#__PURE__*/_react["default"].createElement("article", {
           role: "dialog",
           tabIndex: "-1",
           ref: function ref(el) {
@@ -446,12 +452,12 @@ function (_React$Component) {
             outline: 'none'
           },
           className: boxClass
-        }, closeBtn, _react.default.createElement(_Header.default, {
+        }, closeBtn, /*#__PURE__*/_react["default"].createElement(_Header["default"], {
           title: this.state.title,
           className: this.className('box__header')
-        }), _react.default.createElement("div", {
+        }), /*#__PURE__*/_react["default"].createElement("div", {
           className: this.className('box__body')
-        }, this.state.content), _react.default.createElement(_Footer.default, {
+        }, this.state.content), /*#__PURE__*/_react["default"].createElement(_Footer["default"], {
           className: this.className('box__footer'),
           btnClass: this.props.btnClass,
           buttonClick: this.bound.handleButtonClick,
@@ -467,9 +473,9 @@ function (_React$Component) {
         overlayStyle.background = 'transparent';
       }
 
-      return _react.default.createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", {
         className: className
-      }, _react.default.createElement("div", {
+      }, /*#__PURE__*/_react["default"].createElement("div", {
         role: "presentation",
         onClick: this.bound.containerClick,
         className: this.className('overlay'),
@@ -478,10 +484,8 @@ function (_React$Component) {
     }
   }]);
 
-  _inherits(Popup, _React$Component);
-
   return Popup;
-}(_react.default.Component);
+}(_react["default"].Component);
 
 _defineProperty(Popup, "defaultProps", {
   className: 'mm-popup',
@@ -495,22 +499,22 @@ _defineProperty(Popup, "defaultProps", {
   closeOnOutsideClick: true,
   escToClose: true,
   onClose: function onClose() {},
-  onOpen: function onOpen() {}
+  onShow: function onShow() {}
 });
 
 Popup.propTypes = {
-  className: _propTypes.default.string,
-  btnClass: _propTypes.default.string,
-  closeBtn: _propTypes.default.bool,
-  closeHtml: _propTypes.default.node,
-  defaultOk: _propTypes.default.string,
-  defaultOkKey: _propTypes.default.string,
-  defaultCancel: _propTypes.default.string,
-  defaultCancelKey: _propTypes.default.string,
-  closeOnOutsideClick: _propTypes.default.bool,
-  escToClose: _propTypes.default.bool,
-  onClose: _propTypes.default.func,
-  onOpen: _propTypes.default.func
+  className: _propTypes["default"].string,
+  btnClass: _propTypes["default"].string,
+  closeBtn: _propTypes["default"].bool,
+  closeHtml: _propTypes["default"].node,
+  defaultOk: _propTypes["default"].string,
+  defaultOkKey: _propTypes["default"].string,
+  defaultCancel: _propTypes["default"].string,
+  defaultCancelKey: _propTypes["default"].string,
+  closeOnOutsideClick: _propTypes["default"].bool,
+  escToClose: _propTypes["default"].bool,
+  onClose: _propTypes["default"].func,
+  onShow: _propTypes["default"].func
 };
 var _default = Popup;
-exports.default = _default;
+exports["default"] = _default;
