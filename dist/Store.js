@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _eventEmitterObject = require("event-emitter-object");
+var _events = require("events");
 
 var _Constants = _interopRequireDefault(require("./Constants"));
 
@@ -129,6 +129,6 @@ var PopupStore = /*#__PURE__*/function (_EventEmitter) {
   }]);
 
   return PopupStore;
-}(_eventEmitterObject.EventEmitter);
+}(_events.EventEmitter);
 
 exports["default"] = PopupStore;
