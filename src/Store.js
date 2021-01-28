@@ -1,4 +1,4 @@
-import { EventEmitter } from 'event-emitter-object';
+import { EventEmitter } from 'events';
 import Constants from './Constants';
 
 export default class PopupStore extends EventEmitter {
